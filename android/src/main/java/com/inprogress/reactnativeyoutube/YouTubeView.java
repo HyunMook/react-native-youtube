@@ -77,7 +77,7 @@ public class YouTubeView extends FrameLayout {
         mYouTubeController.seekTo(second);
     }
 
-    public int getCurrentTime() {
+    public double getCurrentTime() {
         return mYouTubeController.getCurrentTime();
     }
 
@@ -123,7 +123,7 @@ public class YouTubeView extends FrameLayout {
     public void didChangeToSeeking(int milliSeconds) {
         WritableMap event = Arguments.createMap();
         event.putString("state", "seeking");
-        event.putInt("currentTime", milliSeconds / 1000);
+        event.putInt("currentTime", (double)milliSeconds / 1000.0);
         event.putInt("target", getId());
         ReactContext reactContext = getReactContext();
         reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "state", event);

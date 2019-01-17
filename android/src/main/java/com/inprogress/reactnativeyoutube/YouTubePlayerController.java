@@ -157,12 +157,12 @@ public class YouTubePlayerController implements
         mYouTubeView.receivedError(errorReason.toString());
     }
 
-    public void seekTo(int second) {
-        if (isLoaded()) mYouTubePlayer.seekToMillis(second * 1000);
+    public void seekTo(double second) {
+        if (isLoaded()) mYouTubePlayer.seekToMillis(second * 1000.0);
     }
 
-    public int getCurrentTime() {
-      return mYouTubePlayer.getCurrentTimeMillis() / 1000;
+    public double getCurrentTime() {
+      return mYouTubePlayer.getCurrentTimeMillis() / 1000.0;
     }
 
     public int getDuration() {
