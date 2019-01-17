@@ -123,7 +123,7 @@ public class YouTubeView extends FrameLayout {
     public void didChangeToSeeking(int milliSeconds) {
         WritableMap event = Arguments.createMap();
         event.putString("state", "seeking");
-        event.putDouble("currentTime", milliSeconds / 1000);
+        event.putDouble("currentTime", (double)milliSeconds / 1000);
         event.putInt("target", getId());
         ReactContext reactContext = getReactContext();
         reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "state", event);
